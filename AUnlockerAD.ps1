@@ -11,10 +11,10 @@ if ($value -ne 0){
         write-host "Users locked are $querynamed"  -ForegroundColor white -BackgroundColor red
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         write-host "$value Unlock Operations were done" -ForegroundColor green -backgroundcolor black
-        $value.tostring() + " Accounts are locked out at " + ($date) | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-        "$querynamed" + " were locked out at " | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-        "$querynamed" + " have been unlocked on " + ($date) | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-        "`n" | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
+        $value.tostring() + " Accounts are locked out at " + ($date) | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+        "$querynamed" + " were locked out at " | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+        "$querynamed" + " have been unlocked on " + ($date) | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+        "`n" | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         foreach($i in $queryname){
             $user = Get-ADUser $i -Properties MemberOf
@@ -29,10 +29,10 @@ if ($value -ne 0){
         write-host "User locked is $querynamed"  -ForegroundColor white -BackgroundColor red
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         write-host "$value Unlock Operations were done" -ForegroundColor green -backgroundcolor black
-        $value.tostring() + " Accounts are locked out at " + ($date) | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-        "$querynamed" + " was locked out at " | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-        "$querynamed" + " has been unlocked on " + ($date) | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-        "`n" | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
+        $value.tostring() + " Accounts are locked out at " + ($date) | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+        "$querynamed" + " was locked out at " | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+        "$querynamed" + " has been unlocked on " + ($date) | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+        "`n" | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         foreach($i in $queryname){
             $user = Get-ADUser $i -Properties MemberOf
@@ -47,8 +47,8 @@ if ($value -ne 0){
     write-host "The number of Account locked out is $value" -ForegroundColor green -backgroundcolor black
     write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
     write-host "$value Unlock Operation was done" -ForegroundColor green -backgroundcolor black
-    $value.tostring() + " Accounts are locked out at " + ($date) | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-    "No User has been unlocked" + " has been unlocked on " + ($date) | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
-    "`n" | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
+    $value.tostring() + " Accounts are locked out at " + ($date) | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+    "No User has been unlocked" + " has been unlocked on " + ($date) | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
+    "`n" | Out-File -filepath C:\Users\Administrator\Desktop\logs\Alog.txt -Append
 }
 #Read-Host -Prompt "Press Enter to exit"
