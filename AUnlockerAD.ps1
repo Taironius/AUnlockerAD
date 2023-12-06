@@ -17,8 +17,11 @@ if ($value -ne 0){
         "`n" | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         foreach($i in $queryname){
-            Unlock-ADAccount -Identity $i
-            write-host $i.tostring() " was unlocked" -ForegroundColor green -backgroundcolor black
+            $user = Get-ADUser $i -Properties MemberOf
+            if ("Colaborador_Venezuelal" -in $user.MemberOf){
+                Unlock-ADAccount -Identity $i
+                write-host $i.tostring() " was unlocked" -ForegroundColor green -backgroundcolor black
+            }
         }
     }elseif($value -lt 2){
         write-host "The number of Accounts locked is are $value" -ForegroundColor white -BackgroundColor red
@@ -32,8 +35,11 @@ if ($value -ne 0){
         "`n" | Out-File -filepath C:\Users\ogie\Desktop\Alog.txt -Append
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         foreach($i in $queryname){
-            Unlock-ADAccount -Identity $i
-            write-host $i.tostring() " was unlocked" -ForegroundColor green -backgroundcolor black
+            $user = Get-ADUser $i -Properties MemberOf
+            if ("Colaborador_Venezuelal" -in $user.MemberOf){
+                Unlock-ADAccount -Identity $i
+                write-host $i.tostring() " was unlocked" -ForegroundColor green -backgroundcolor black
+            }
         }    
     }
     
