@@ -19,4 +19,4 @@ if ($value -ne 0){
         }
     }
 }
-Read-Host -Prompt "Press Enter to exit"
+#Read-Host -Prompt "Press Enter to exit"
