@@ -1,4 +1,6 @@
-﻿$query = Search-ADAccount -LockedOut | Where-Object{($_.enabled -ieq "True")}
+﻿$groupDN = (Get-ADGroup "Colaborador_Venezuelal").DistinguishedName
+
+$query = Search-ADAccount -LockedOut | Where-Object{($_.enabled -ieq "True")}
 $queryname = $query.samaccountname 
 $date = Get-Date
 $querynamed = write-output $queryname 
@@ -18,7 +20,7 @@ if ($value -ne 0){
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         foreach($i in $queryname){
             $user = Get-ADUser $i -Properties MemberOf
-            if ("Colaborador_Venezuelal" -in $user.MemberOf){
+            if ($groupDN -in $user.MemberOf){
                 Unlock-ADAccount -Identity $i
                 write-host $i.tostring() " was unlocked" -ForegroundColor green -backgroundcolor black
             }
@@ -36,7 +38,7 @@ if ($value -ne 0){
         write-host "-------------------------------------------------------" -ForegroundColor black -BackgroundColor yellow
         foreach($i in $queryname){
             $user = Get-ADUser $i -Properties MemberOf
-            if ("Colaborador_Venezuelal" -in $user.MemberOf){
+            if ($groupDN -in $user.MemberOf){
                 Unlock-ADAccount -Identity $i
                 write-host $i.tostring() " was unlocked" -ForegroundColor green -backgroundcolor black
             }
