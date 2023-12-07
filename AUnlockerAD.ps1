@@ -1,4 +1,5 @@
-﻿$groupDN = (Get-ADGroup "Colaboradores_Venezuelal").DistinguishedName
+﻿#Troque o que está entre "" pelo nome do grupo desejado
+$groupDN = (Get-ADGroup "Colaboradores_Venezuelal").DistinguishedName
 
 $query = Search-ADAccount -LockedOut | Where-Object{($_.enabled -ieq "True")}
 $queryname = $query.samaccountname 
